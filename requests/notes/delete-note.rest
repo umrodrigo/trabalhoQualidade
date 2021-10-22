@@ -1,0 +1,2 @@
+DELETE   http://localhost:8080/api/note/7
+Content-Type: application/json
