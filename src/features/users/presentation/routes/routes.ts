@@ -12,21 +12,37 @@ const makeControler = (): MvcController => { // factory Method
 export default class UserRoutes {
     public init(router: Router) {   
 
-        router.post('/users', 
-            middlewareAdapter(new UserIdMiddleware()), 
+        router.post('/users',    
             middlewareAdapter(new UserUsernameMiddleware()), 
             middlewareAdapter(new UserPasswordMiddleware()), 
-            middlewareAdapter(new UserCreateMiddleware()), routeMvcAdapter(makeControler(), TypeActionMvc.STORE));
-        router.get('/users', routeMvcAdapter(makeControler(), TypeActionMvc.INDEX));
+            middlewareAdapter(new UserCreateMiddleware()), 
+            routeMvcAdapter(makeControler(), 
+            TypeActionMvc.STORE));
+
+        router.get('/users', 
+        routeMvcAdapter(makeControler(), 
+        TypeActionMvc.INDEX));
+
         router.get('/users/:id', 
-            middlewareAdapter(new UserIdMiddleware()), routeMvcAdapter(makeControler(), TypeActionMvc.SHOW));
+            middlewareAdapter(new UserIdMiddleware()), 
+            routeMvcAdapter(makeControler(), TypeActionMvc.SHOW));
+
         router.put('/users/:id', 
             middlewareAdapter(new UserIdMiddleware()), 
-            middlewareAdapter(new UserPasswordMiddleware()), routeMvcAdapter(makeControler(), TypeActionMvc.UPDATE));
-        router.delete('/users/:id', middlewareAdapter(new UserIdMiddleware()), routeMvcAdapter(makeControler(), TypeActionMvc.DELETE));
+            middlewareAdapter(new UserPasswordMiddleware()), 
+            routeMvcAdapter(makeControler(), 
+            TypeActionMvc.UPDATE));
+
+        router.delete('/users/:id', 
+        middlewareAdapter(new UserIdMiddleware()), 
+        routeMvcAdapter(makeControler(), 
+        TypeActionMvc.DELETE));
+
         router.post('/users/login', 
             middlewareAdapter(new UserUsernameMiddleware()), 
             middlewareAdapter(new UserPasswordMiddleware()),
-            middlewareAdapter(new UserLoginMiddleware()), routeMvcAdapter(makeControler(),  TypeActionMvc.LOGIN));
+            middlewareAdapter(new UserLoginMiddleware()), 
+            routeMvcAdapter(makeControler(),  
+            TypeActionMvc.LOGIN));
     };
 };
