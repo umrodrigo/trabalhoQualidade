@@ -9,9 +9,6 @@ export class NoteController implements MvcController {
     constructor(repository: NoteRepository, cache: CacheRepository) {
         this.#repository = repository;
         this.#cache = cache;
-    }    
-    login(request: HttpRequest): Promise<HttpResponse> {
-        throw new Error("Method not implemented.");
     }
     async store(request: HttpRequest): Promise<HttpResponse> {
         try {

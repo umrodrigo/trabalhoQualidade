@@ -6,5 +6,5 @@ export interface MvcController {
     delete(request: HttpRequest): Promise<HttpResponse>;
     index(request: HttpRequest): Promise<HttpResponse>;
     show(request: HttpRequest): Promise<HttpResponse>; 
-    login(request: HttpRequest): Promise<HttpResponse>; 
+    login?(request: HttpRequest): Promise<HttpResponse>; 
 };

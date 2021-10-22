@@ -1,4 +1,4 @@
-import { NoteEntity, UserEntity } from "../../../../core/infra";
+import { NoteEntity } from "../../../../core/infra";
 import { User } from "../../../users/domain";
 import { Note } from "../../domain";
 
