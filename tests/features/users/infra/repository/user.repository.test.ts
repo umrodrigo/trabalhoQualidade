@@ -1,4 +1,4 @@
-import { NoteEntity, UserEntity } from "../../../../../src/core/infra";
+import { UserEntity } from "../../../../../src/core/infra";
 import Database from "../../../../../src/core/infra/data/connections/database";
 import { UserRepository } from "../../../../../src/features/users/infra";
 import { v4 as uuid } from "uuid";
@@ -30,7 +30,7 @@ const makeUpdateParams = async (id: string): Promise<User> => {
         password: "updated",
         id: uuid(),
     };
-  };
+};
 
 describe('User Repository', () => {
     beforeAll(async () => {
