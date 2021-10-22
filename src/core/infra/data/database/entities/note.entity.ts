@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 
 @Entity({name: 'notes'})
 export class NoteEntity extends BaseEntity {
+    [x: string]: any;
     @PrimaryColumn({ name: 'id'})
     id?: string;
 
