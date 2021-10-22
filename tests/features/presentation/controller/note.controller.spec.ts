@@ -26,7 +26,7 @@ const makeRequestIndex = (): HttpRequest => ({
 });
 
 const makeNoteResult = () => ({      
-    id: 1,
+    id: '1',
     description: "note.description",
     details: "note.details",
     userID: "note.userID",

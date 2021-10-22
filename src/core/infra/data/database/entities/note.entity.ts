@@ -1,10 +1,11 @@
-import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { UserEntity } from './user.entity';
+import { v4 as uuid } from "uuid";
 
 @Entity({name: 'notes'})
 export class NoteEntity extends BaseEntity {
-    @PrimaryGeneratedColumn({ name: 'id'})
-    id?: number;
+    @PrimaryColumn({ name: 'id'})
+    id?: string;
 
     @Column({ name: 'description' })
     description: string;
@@ -35,7 +36,8 @@ export class NoteEntity extends BaseEntity {
     }
 
     @BeforeInsert()
-    private date() {        
+    private date() {
+        this.id = uuid();
         this.createdAt = new Date(Date.now());
         this.updatedAt = new Date(Date.now());
     };
